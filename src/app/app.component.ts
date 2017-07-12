@@ -3,7 +3,11 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   template: `
-    <h1>Hello Angular</h1><courses></courses> <authors></authors>
+    <h1>Hello Angular</h1>
+    <h1>Courses component:</h1>
+    <courses></courses>
+    <h1>Authors component:</h1>
+    <authors></authors>
     <favorite [is-favorite]="[post.isFavorite]" (favorite-change-event)="onFavoriteChange($event)"></favorite>
     <!-- WROOOONG: '<heart [totalLikes]="[tweet.totalLikes]" [iLike]="[tweet.iLike]"></heart>-->
     <hr>

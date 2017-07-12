@@ -3,11 +3,7 @@ import {Component, Input, EventEmitter, Output} from '@angular/core';
 @Component({
     selector: 'favorite',
     templateUrl: 'favorite.template.html',
-    styles: [`
-        .glyphicon-star {
-            color: orange;
-        }
-    `]
+    styleUrls: ['favorite.component.css']
 })
 export class FavoriteComponent{
     @Input('is-favorite') isFavorite;
