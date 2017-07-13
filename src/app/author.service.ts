@@ -1,6 +1,9 @@
+import { Injectable } from '@angular/core';
 
-export  class AuthorService {
-    getAuthors(): string[] {
-        return  ['Author1', 'Author2', 'Author3'];
-    }
-};
+@Injectable()
+export class AuthorService {
+  getAuthors(): string[] {
+    return  ['Author1', 'Author2', 'Author3'];
+  }
+
+}

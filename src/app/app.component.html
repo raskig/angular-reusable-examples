@@ -1,12 +1,12 @@
 <h1>Hello Angular</h1>
 <h1>Courses component:</h1>
-<courses></courses>
+<bootstrap-courses></bootstrap-courses>
 <h1>Authors component:</h1>
-<authors></authors>
-<favorite [is-favorite]="[post.isFavorite]" (favorite-change-event)="onFavoriteChange($event)"></favorite>
+<bootstrap-authors></bootstrap-authors>
+<bootstrap-favorite [is-favorite]="[post.isFavorite]" (favorite-change-event)="onFavoriteChange($event)"></bootstrap-favorite>
 <!-- WROOOONG: '<heart [totalLikes]="[tweet.totalLikes]" [iLike]="[tweet.iLike]"></heart>-->
 <hr>
-<heart [totalLikes]="tweet.totalLikes" [iLike]="tweet.iLike"></heart>
+<bootstrap-heart [totalLikes]="tweet.totalLikes" [iLike]="tweet.iLike"></bootstrap-heart>
 <hr>
 <vote [voteCount]="vote.count" [myVote]="vote.myVote" (vote)="onVote($event)"></vote>
 <hr>
@@ -15,10 +15,10 @@
     <ng-container class="heading">Heading</ng-container>
     <ng-container class="body">Body</ng-container>
   </bootstrap-panel>
-  <zippy tittle="Who can see my stuff?">This is the who can see.</zippy>
-  <zippy tittle="Who can see my stuff2?">This is the who can see2.</zippy>
+  <bootstrap-zippy tittle="Who can see my stuff?">This is the who can see.</bootstrap-zippy>
+  <bootstrap-zippy tittle="Who can see my stuff2?">This is the who can see2.</bootstrap-zippy>
 </div>
 <hr>
-<contact-form></contact-form>
+<bootstrap-contact-form></bootstrap-contact-form>
 <hr>
-<signup-form></signup-form>
+<bootstrap-signup-form></bootstrap-signup-form>

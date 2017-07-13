@@ -1,7 +1,7 @@
 
 import {FormControl} from '@angular/forms';
 
-export class UsernameValidators{
+export class UsernameValidators {
 
     static shouldBeUnique(control: FormControl) {
         return new Promise((resolve, reject) => {

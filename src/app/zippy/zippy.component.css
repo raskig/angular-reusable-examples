@@ -1,0 +1,18 @@
+.zippy {
+  border: 1px solid #ccc;
+  border-radius: 2px;
+}
+
+.zippy .zippy-title {
+  padding: 20px;
+  font-weight: bold;
+}
+
+.zippy .zippy-title:hover{
+  background: #f0f0f0;
+  cursor: pointer;
+}
+
+.zippy .zippy-content {
+  padding: 20px;
+}
