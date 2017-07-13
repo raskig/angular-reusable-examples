@@ -15,23 +15,3 @@
     <ng-content select=".body"></ng-content>
   </div>
 </div>
-
-
-<div class="zippy">
-  <div class="zippy-title"
-       (click)="toggle()">
-    {{tittle}}
-    <i
-      class="pull-right glyphicon"
-      [ngClass]="
-                {
-                    'glyphicon-chevron-down': !isExpanded,
-                    'glyphicon-chevron-up': isExpanded
-                }
-            ">
-    </i>
-  </div>
-  <div *ngIf="isExpanded" class="zippy-content">
-    <ng-content></ng-content>
-  </div>
-</div>
