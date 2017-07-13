@@ -13,6 +13,7 @@ import { ZippyPanel } from './zippy.component';
 import { ContactFormComponent } from './contact-form.component';
 import { SignUpFormComponent } from './signup-form.component';
 import { AutoGrowDirective } from './auto-grow.directive';
+import { PanelComponent } from './panel/panel.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { AutoGrowDirective } from './auto-grow.directive';
     ZippyPanel,
     ContactFormComponent,
     SignUpFormComponent,
-    AutoGrowDirective],
+    AutoGrowDirective,
+    PanelComponent],
   imports: [
     BrowserModule,
     FormsModule,

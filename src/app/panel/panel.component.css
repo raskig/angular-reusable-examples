@@ -1,0 +1,19 @@
+
+.panel-default {
+  border: 1px solid #ccc;
+  border-radius: 2px;
+}
+
+.panel-default .panel-heading {
+  padding: 20px;
+  font-weight: bold;
+}
+
+.panel-default .panel-heading:hover{
+  background: #f0f0f0;
+  cursor: pointer;
+}
+
+.panel-default .panel-body {
+  padding: 20px;
+}

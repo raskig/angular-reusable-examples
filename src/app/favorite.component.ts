@@ -1,9 +1,10 @@
-import {Component, Input, EventEmitter, Output} from '@angular/core';
+import {Component, Input, EventEmitter, Output, ViewEncapsulation} from '@angular/core';
 
 @Component({
     selector: 'favorite',
     templateUrl: 'favorite.template.html',
-    styleUrls: ['favorite.component.css']
+    styleUrls: ['favorite.component.css'],
+    encapsulation: ViewEncapsulation.Emulated
 })
 export class FavoriteComponent{
     @Input('is-favorite') isFavorite;
