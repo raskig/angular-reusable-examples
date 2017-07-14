@@ -9,7 +9,7 @@ import {CourseService} from '../course.service';
 })
 export class CoursesComponent implements OnInit {
 
-  tittle = 'This is the courses page tittle';
+  tittle = 'NEW COURSE NAME';
   courses;
 
   onKeyUp(theTittle) {
@@ -18,6 +18,15 @@ export class CoursesComponent implements OnInit {
 
   constructor(courseService: CourseService) {
     this.courses = courseService.getCourses();
+  }
+
+  onAdd() {
+    this.courses.push(this.tittle);
+  }
+
+  onRemove(course) {
+    const index = this.courses.indexOf(course);
+    this.courses.splice(index, 1);
   }
 
   ngOnInit() {
