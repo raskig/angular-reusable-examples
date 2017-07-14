@@ -1,34 +1,52 @@
 <form [formGroup]="form" (ngSubmit)="signup()">
+  
   <div class="form-group">
-    <label for="username">Username</label>
+    <label for="loginTo">Login To:</label>
     <input
-      id="username"
+      id="loginTo"
       type="text"
       class="form-control"
-      formControlName="username">
-    <div *ngIf="username.pending">Checking for uniqueness...</div>
-    <div *ngIf="username.touched && username.errors">
-      <div    *ngIf="username.errors.invalidLogin == true"
-              class="alert alert-danger">Username or password is invalid.</div>
-      <div
-        *ngIf="username.errors.required"
-        class="alert alert-danger">Username is required.</div>
-      <div    *ngIf="username.errors && username.errors.cannotContainSpace"
-              class="alert alert-danger">Username cannot contain space</div>
-      <div    *ngIf="username.errors && username.errors.shouldBeUnique"
-              class="alert alert-danger">Username is already taken.</div>
+      formControlName="loginTo">
+    <div    *ngIf="!loginTo.valid && loginTo.touched"
+            class="alert alert-danger">Login to is required</div>
+  </div>
+  
+  
+  <div formGroupName="account">
+    
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input
+        id="username"
+        type="text"
+        class="form-control"
+        formControlName="username">
+      <div *ngIf="username.pending">Checking for uniqueness...</div>
+      <div *ngIf="username.touched && username.errors">
+        <div    *ngIf="username.errors.invalidLogin == true"
+                class="alert alert-danger">Username or password is invalid.</div>
+        <div
+          *ngIf="username?.errors?.required"
+          class="alert alert-danger">Username is required.</div>
+        <div    *ngIf="username.errors && username.errors.cannotContainSpace"
+                class="alert alert-danger">Username cannot contain space</div>
+        <div    *ngIf="username.errors && username.errors.shouldBeUnique"
+                class="alert alert-danger">Username is already taken.</div>
+      </div>
+  
     </div>
   
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input
+        id="password"
+        type="text"
+        class="form-control"
+        formControlName="password">
+      <div    *ngIf="!password.valid && password.touched"
+              class="alert alert-danger">Password is required</div>
+    </div>
+    
   </div>
-  <div class="form-group">
-    <label for="password">Password</label>
-    <input
-      id="password"
-      type="text"
-      class="form-control"
-      formControlName="password">
-    <div    *ngIf="!form.controls.password.valid && form.controls.password.touched"
-            class="alert alert-danger">Password is rewuired</div>
-  </div>
-  <button class="btn btn-primary" type="submit">Sign Up</button>
+    <button class="btn btn-primary" type="submit">Sign Up</button>
 </form>

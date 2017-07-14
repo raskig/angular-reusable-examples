@@ -12,27 +12,34 @@ export class SignupFormComponent implements OnInit {
 
   constructor(fb: FormBuilder) {
     this.form = fb.group({
-      username: ['', Validators.compose([
-        Validators.required,
-        UsernameValidators.cannotContainSpace]),
-        UsernameValidators.shouldBeUnique],
-      password: ['', Validators.required]
+      loginTo: ['', Validators.required],
+      account: fb.group({
+        username: ['', Validators.compose([
+          Validators.required,
+          UsernameValidators.cannotContainSpace]),
+          UsernameValidators.shouldBeUnique],
+        password: ['', Validators.required]
+      })
     });
   }
 
   signup() {
     console.log(this.form.value);
-    this.form.get('username').setErrors({
+    this.form.get('account.username').setErrors({
       invalidLogin: true
     });
   }
 
   get username(){
-    return this.form.get('username');
+    return this.form.get('account.username');
   }
 
   get password(){
-    return this.form.get('password');
+    return this.form.get('account.password');
+  }
+
+  get loginTo(){
+    return this.form.get('loginTo');
   }
 
   ngOnInit() {
