@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {CourseService} from '../course.service';
+import {noUndefined} from "@angular/compiler/src/util";
 
 @Component({
   selector: 'bootstrap-courses',
@@ -28,6 +29,10 @@ export class CoursesComponent implements OnInit {
   onRemove(course) {
     const index = this.courses.indexOf(course);
     this.courses.splice(index, 1);
+  }
+
+  trackCourse(index, course) {
+    return  course ? course.id : undefined;
   }
 
   ngOnInit() {

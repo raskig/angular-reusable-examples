@@ -1,6 +1,13 @@
 <h1>FAVORITE?</h1>
+
+<!-- Simpler solution:
+[class.glyphicon-star-empty]="!isFavorite"
+[class.glyphicon-star]="isFavorite" -->
+
 <i class="glyphicon"
-   [class.glyphicon-star-empty]="!isFavorite"
-   [class.glyphicon-star]="isFavorite"
+   [ngClass]="{
+   'glyphicon-star': isFavorite,
+   'glyphicon-star-empty': !isFavorite
+   }"
    (click)="onClick()">
 </i>
