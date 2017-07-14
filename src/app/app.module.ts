@@ -14,6 +14,7 @@ import { HeartComponent } from './heart/heart.component';
 import { FavoriteComponent } from './favorite/favorite.component';
 import { SignupFormComponent } from './signup-form/signup-form.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
+import { ViewSelectorComponent } from './view-selector/view-selector.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
     PanelComponent,
     ZippyComponent,
     CoursesComponent,
-    SignupFormComponent],
+    SignupFormComponent,
+    ViewSelectorComponent],
   imports: [
     BrowserModule,
     FormsModule,
