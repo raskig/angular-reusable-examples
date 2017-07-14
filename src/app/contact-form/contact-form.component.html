@@ -16,8 +16,8 @@
         First name required
       </div>
       <div class="alert alert-danger"
-           *ngIf="firstName.errors.minlength">
-        First should be minimum {{firstName.errors.minLength.requiredLength}} characters long.
+           *ngIf="firstName?.errors?.minlength">
+        First should be minimum {{firstName?.errors?.minLength?.requiredLength}} characters long.
       </div>
     </div>
   </div>
