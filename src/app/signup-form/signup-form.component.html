@@ -6,16 +6,16 @@
       type="text"
       class="form-control"
       formControlName="username">
-    <div *ngIf="form.controls.username.pending">Checking for uniqueness...</div>
-    <div *ngIf="form.controls.username.touched && form.controls.username.errors">
-      <div    *ngIf="form.controls.username.errors.invalidLogin == true"
+    <div *ngIf="form.get('username').pending">Checking for uniqueness...</div>
+    <div *ngIf="form.get('username').touched && form.get('username').errors">
+      <div    *ngIf="form.get('username').errors.invalidLogin == true"
               class="alert alert-danger">Username or password is invalid.</div>
       <div
-        *ngIf="form.controls.username.errors.required"
+        *ngIf="form.get('username').errors.required"
         class="alert alert-danger">Username is required.</div>
-      <div    *ngIf="form.controls.username.errors && form.controls.username.errors.cannotContainSpace"
+      <div    *ngIf="form.get('username').errors && form.get('username').errors.cannotContainSpace"
               class="alert alert-danger">Username cannot contain space</div>
-      <div    *ngIf="form.controls.username.errors && form.controls.username.errors.shouldBeUnique"
+      <div    *ngIf="form.get('username').errors && form.get('username').errors.shouldBeUnique"
               class="alert alert-danger">Username is already taken.</div>
     </div>
   
