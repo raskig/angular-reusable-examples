@@ -17,7 +17,7 @@
       </div>
       <div class="alert alert-danger"
            *ngIf="firstName.errors.minlength">
-        First should be minimum {{firstName.errors.minlength.requiredLength}} characters long.
+        First should be minimum {{firstName.errors.minLength.requiredLength}} characters long.
       </div>
     </div>
   </div>
@@ -41,6 +41,15 @@
     <label>
       <input type="checkbox" ngModel name="isSubscribed"> Subscribe to mailing list
     </label>
+  </div>
+  
+  <div class="form-group">
+    <label for="contactMethod">Contact method</label>
+    <select ngModel name="contactMethod" id="contactMethod" class="form-control">
+      <option value=""></option>
+      <!--bunding ngValue instead of value, and we send the whoile method object when submitted instead of the id only.-->
+      <option *ngFor="let method of contactMethods" [ngValue]="method">{{method.id}}</option>
+    </select>
   </div>
   <p>
     {{f.value | json}}
