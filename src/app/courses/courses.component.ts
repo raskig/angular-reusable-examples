@@ -11,13 +11,14 @@ export class CoursesComponent implements OnInit {
 
   tittle = 'NEW COURSE NAME';
   courses;
+  courseService= new CourseService();
 
   onKeyUp(theTittle) {
     console.log('Enter was pressed.' + theTittle);
   }
 
-  constructor(courseService: CourseService) {
-    this.courses = courseService.getCourses();
+  loadCourses() {
+    this.courses = this.courseService.getCourses();
   }
 
   onAdd() {

@@ -1,10 +1,12 @@
 <h2>{{tittle}}</h2>
+<button (click)="loadCourses()">Load Courses.</button>
+<br>
 <input #theTittle (keyup.enter)="onKeyUp(theTittle.value)" type="text" bootstrapAutoGrow [(ngModel)]="tittle"/>
 <br>
 <button (click)="onAdd()">Add new course.</button>
 <ul>
   <li *ngFor="let course of courses">
-    {{course}}
+    {{course.name}}
     <button (click)="onRemove(course)">Remove</button>
   </li>
 </ul>
