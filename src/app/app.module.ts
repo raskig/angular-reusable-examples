@@ -15,6 +15,8 @@ import { FavoriteComponent } from './favorite/favorite.component';
 import { SignupFormComponent } from './signup-form/signup-form.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { ViewSelectorComponent } from './view-selector/view-selector.component';
+import { InputFormatDirective } from './input-format.directive';
+import { FormattedInputComponent } from './formatted-input/formatted-input.component';
 
 
 @NgModule({
@@ -31,7 +33,9 @@ import { ViewSelectorComponent } from './view-selector/view-selector.component';
     ZippyComponent,
     CoursesComponent,
     SignupFormComponent,
-    ViewSelectorComponent],
+    ViewSelectorComponent,
+    InputFormatDirective,
+    FormattedInputComponent],
   imports: [
     BrowserModule,
     FormsModule,
