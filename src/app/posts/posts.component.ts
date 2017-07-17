@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 
 import { Http } from '@angular/http'
 import {parseHttpResponse} from "selenium-webdriver/http";
+import {supportsState} from "@angular/platform-browser/src/browser/location/history";
 
 @Component({
   selector: 'bootstrap-posts',
@@ -20,6 +21,17 @@ export class PostsComponent implements OnInit {
         this.posts = response.json();
       });
   }
+
+
+  updatePost(post) {
+    this.http.patch(this.url + '/' + post.id, JSON.stringify({isRead: true}))
+      .subscribe(response => {
+        console.log(response)
+        console.log(response);
+      });
+    // or: this.http.put(this.url, JSON.stringify(post));
+  }
+
 
   createPost(input: HTMLInputElement) {
     const post = {title: input.value};
