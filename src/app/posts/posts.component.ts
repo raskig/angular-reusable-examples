@@ -2,6 +2,10 @@ import {Component, OnInit} from '@angular/core';
 import {parseHttpResponse} from 'selenium-webdriver/http';
 import {supportsState} from '@angular/platform-browser/src/browser/location/history';
 import {PostService} from '../services/post.service';
+import {Observable} from "rxjs/Observable";
+import {NotFoundError} from "../common/not-found-error";
+import {AppError} from "../common/app-error";
+import {BadInputError} from "../common/bad-input-error";
 
 @Component({
   selector: 'bootstrap-posts',
@@ -20,7 +24,8 @@ export class PostsComponent implements OnInit {
       this.service.getPost()
         .subscribe(response => {
         this.posts = response.json();
-      }, error => {
+      },
+          error => {
           alert('An unexpected error occured.');
         });
   }
@@ -30,21 +35,29 @@ export class PostsComponent implements OnInit {
       .subscribe(response => {
         console.log(response)
         console.log(response);
-      }, error => {
-        alert('An unexpected error occured.');
-      });
-    // or: this.http.put(this.url, JSON.stringify(post));
+      },
+        (error: AppError) => {
+          if (error instanceof NotFoundError) {
+            alert('This post has already been deleted.');
+          } else {
+            alert('Unexpected error occured.');
+          }
+        });
   }
 
   deletePost(post) {
-    this.service.deletePost(post)
+    this.service.deletePost(post.id)
       .subscribe(response => {
         const index = this.posts.indexOf(post);
         this.posts.splice(index, 1);
-      }, error => {
-          alert('An unexpected error occured.');
+      },
+        (error: AppError) => {
+          if (error instanceof NotFoundError) {
+            alert('This post has already been deleted.');
+          } else {
+            alert('Unexpected error occured.');
+          }
         });
-    // or: this.http.put(this.url, JSON.stringify(post));
   }
 
   createPost(input: HTMLInputElement) {
@@ -55,8 +68,12 @@ export class PostsComponent implements OnInit {
         post['id'] = response.json().id;
         this.posts.splice(0, 0, post);
         console.log(response.json());
-      }, error => {
-        alert('An unexpected error occured.');
+      },
+        (error: AppError) => {
+        if (error instanceof BadInputError) {
+            // Do something with the error
+           // this.form.setErrors(error.orignalError());
+        }
       });
   }
 
