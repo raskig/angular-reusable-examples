@@ -18,6 +18,8 @@ import { ViewSelectorComponent } from './view-selector/view-selector.component';
 import { InputFormatDirective } from './input-format.directive';
 import { FormattedInputComponent } from './formatted-input/formatted-input.component';
 import { PostsComponent } from './posts/posts.component';
+import {AppErrorHandler} from './common/app-error-handler';
+import {ErrorHandler} from '@angular/core';
 
 
 @NgModule({
@@ -44,7 +46,7 @@ import { PostsComponent } from './posts/posts.component';
     HttpModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [{provide: ErrorHandler, useClass: AppErrorHandler}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

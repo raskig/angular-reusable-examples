@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/catch';
+import 'rxjs/add/observable/throw'; //IMPORTING STATIC METHODS OF OBSERVABLE FOROBSERVABLE OPERATOR!
 import {Observable} from 'rxjs/Observable'
 import {AppError} from "../common/app-error";
 import {NotFoundError} from "../common/not-found-error";
@@ -15,7 +16,10 @@ export class PostService {
   }
 
   getPost() {
-      return this.http.get(this.url);
+      return this.http.get(this.url)
+        .catch((error: Response) => {
+          return Observable.throw(new AppError(error));
+        });
     }
 
   updatePost(post) {
