@@ -16,10 +16,6 @@ export class PostsComponent implements OnInit {
   private url = 'https://jsonplaceholder.typicode.com/posts';
 
   constructor(private http: Http) {
-    http.get(this.url)
-      .subscribe(response => {
-        this.posts = response.json();
-      });
   }
 
 
@@ -53,6 +49,10 @@ export class PostsComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.http.get(this.url)
+      .subscribe(response => {
+        this.posts = response.json();
+      });
   }
 
 }
