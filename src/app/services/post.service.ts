@@ -13,12 +13,12 @@ export class PostService {
       return this.http.get(this.url);
     }
 
-  updatePost(postId) {
-    return this.http.patch(this.url + '/' + postId, JSON.stringify({isRead: true}));
+  updatePost(post) {
+    return this.http.patch(this.url + '/' + post.id, JSON.stringify({isRead: true}));
   }
 
-  deletePost(postId) {
-    return this.http.delete(this.url + '/' + postId)
+  deletePost(post) {
+    return this.http.delete(this.url + '/' + post.id)
   }
 
   createPost(post) {
