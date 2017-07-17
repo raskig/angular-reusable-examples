@@ -32,6 +32,14 @@ export class PostsComponent implements OnInit {
     // or: this.http.put(this.url, JSON.stringify(post));
   }
 
+  deletePost(post) {
+    this.http.delete(this.url + '/' + post.id)
+      .subscribe(response => {
+        const index = this.posts.indexOf(post);
+        this.posts.splice(index, 1);
+      });
+    // or: this.http.put(this.url, JSON.stringify(post));
+  }
 
   createPost(input: HTMLInputElement) {
     const post = {title: input.value};
