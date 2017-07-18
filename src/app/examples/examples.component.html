@@ -1,0 +1,102 @@
+<h1>Angular Examples:</h1>
+
+<div>
+  <bootstrap-panel>
+    <ng-container class="heading">Http Post example</ng-container>
+    <ng-container class="body">
+      <bootstrap-posts></bootstrap-posts>
+    </ng-container>
+  </bootstrap-panel>
+</div>
+
+<div>
+  <bootstrap-panel>
+    <ng-container class="heading">Courses example</ng-container>
+    <ng-container class="body">
+      <bootstrap-courses></bootstrap-courses>
+    </ng-container>
+  </bootstrap-panel>
+</div>
+
+<div>
+  <bootstrap-panel>
+    <ng-container class="heading">Authors example</ng-container>
+    <ng-container class="body">
+      <bootstrap-authors></bootstrap-authors>
+    </ng-container>
+  </bootstrap-panel>
+</div>
+
+<div>
+  <bootstrap-panel>
+    <ng-container class="heading">Favorites example</ng-container>
+    <ng-container class="body">
+      <bootstrap-favorite [is-favorite]="[post.isFavorite]" (favorite-change-event)="onFavoriteChange($event)"></bootstrap-favorite>
+    </ng-container>
+  </bootstrap-panel>
+</div>
+
+<div>
+  <bootstrap-panel>
+    <ng-container class="heading">Hearts example</ng-container>
+    <ng-container class="body">
+      <bootstrap-heart [totalLikes]="tweet.totalLikes" [iLike]="tweet.iLike"></bootstrap-heart>
+    </ng-container>
+  </bootstrap-panel>
+</div>
+
+<div>
+  <bootstrap-panel>
+    <ng-container class="heading">Vote example</ng-container>
+    <ng-container class="body">
+      <vote [voteCount]="vote.count" [myVote]="vote.myVote" (vote)="onVote($event)"></vote>
+    </ng-container>
+  </bootstrap-panel>
+</div>
+
+
+<div>
+  <bootstrap-panel>
+    <ng-container class="heading">Zippy panel example</ng-container>
+    <ng-container class="body">
+      <bootstrap-zippy tittle="Who can see my stuff?">This is the who can see.</bootstrap-zippy>
+    </ng-container>
+  </bootstrap-panel>
+</div>
+
+<div>
+  <bootstrap-panel>
+    <ng-container class="heading">Contact form example</ng-container>
+    <ng-container class="body">
+      <bootstrap-contact-form></bootstrap-contact-form>
+    </ng-container>
+  </bootstrap-panel>
+</div>
+
+<div>
+  <bootstrap-panel>
+    <ng-container class="heading">Signup form example</ng-container>
+    <ng-container class="body">
+      <bootstrap-signup-form></bootstrap-signup-form>
+    </ng-container>
+  </bootstrap-panel>
+</div>
+
+<div>
+  <bootstrap-panel>
+    <ng-container class="heading">View-selector example</ng-container>
+    <ng-container class="body">
+      <bootstrap-view-selector></bootstrap-view-selector>
+    </ng-container>
+  </bootstrap-panel>
+</div>
+
+
+<div>
+  <bootstrap-panel>
+    <ng-container class="heading">Formatted input example</ng-container>
+    <ng-container class="body">
+      <bootstrap-formatted-input></bootstrap-formatted-input>
+    </ng-container>
+  </bootstrap-panel>
+</div>

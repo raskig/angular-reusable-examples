@@ -20,6 +20,14 @@ import { FormattedInputComponent } from './formatted-input/formatted-input.compo
 import { PostsComponent } from './posts/posts.component';
 import {AppErrorHandler} from './common/app-error-handler';
 import {ErrorHandler} from '@angular/core';
+import { NavbarComponent } from './navbar/navbar.component';
+import { HomeComponent } from './home/home.component';
+import { GithubProfileComponent } from './github-profile/github-profile.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { GithubFollowersComponent } from './github-followers/github-followers.component';
+import { RouterModule } from '@angular/router';
+import { GithubFollowersService } from './services/github-followers.service';
+import { ExamplesComponent } from './examples/examples.component';
 
 
 @NgModule({
@@ -39,14 +47,52 @@ import {ErrorHandler} from '@angular/core';
     ViewSelectorComponent,
     InputFormatDirective,
     FormattedInputComponent,
-    PostsComponent],
+    PostsComponent,
+    NavbarComponent,
+    HomeComponent,
+    GithubProfileComponent,
+    NotFoundComponent,
+    GithubFollowersComponent,
+    ExamplesComponent
+  ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule.forRoot([
+      {
+        path: '',
+        component: HomeComponent
+      },
+      {
+        path: 'followers/:username',
+        component: GithubFollowersComponent
+      },
+      {
+        path: 'followers',
+        component: GithubFollowersComponent
+      },
+      {
+        path: 'profile/:username',
+        component: GithubProfileComponent
+      },
+      {
+        path: 'posts',
+        component: PostsComponent
+      },
+      {
+        path: 'examples',
+        component: ExamplesComponent
+      },
+      {
+        path: '**',
+        component: NotFoundComponent
+      }
+    ])
   ],
-  providers: [{provide: ErrorHandler, useClass: AppErrorHandler}],
+  providers: [{provide: ErrorHandler, useClass: AppErrorHandler},
+    GithubFollowersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
