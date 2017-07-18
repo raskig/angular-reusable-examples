@@ -1,50 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/observable/throw'; //IMPORTING STATIC METHODS OF OBSERVABLE FOROBSERVABLE OPERATOR!
-import {Observable} from 'rxjs/Observable'
-import {AppError} from "../common/app-error";
-import {NotFoundError} from "../common/not-found-error";
-import {BadInputError} from "../common/bad-input-error";
+import {DataService} from "./data.service";
 
 @Injectable()
-export class PostService {
+export class PostService extends DataService {
 
-  private url = 'https://jsonplaceholder.typicode.com/posts';
-
-  constructor(private http: Http) {
+  constructor(http: Http) {
+    super('https://jsonplaceholder.typicode.com/posts', http);
   }
-
-  getPost() {
-      return this.http.get(this.url)
-        .catch(this.handleError);
-    }
-
-  updatePost(post) {
-    return this.http.patch(this.url + '/' + post.id, JSON.stringify({isRead: true}))
-      .catch(this.handleError);
-  }
-
-  deletePost(postId) {
-    return this.http.delete(this.url + '/' + postId)
-      .catch(this.handleError);
-
-  }
-
-  createPost(post) {
-    return this.http.post(this.url, JSON.stringify(post))
-      .catch(this.handleError);
-  }
-
-
-  private handleError(error: Response) {
-    if (error.status === 404) {
-      return Observable.throw(new NotFoundError);
-    }
-    if (error.status === 400) {
-      return Observable.throw(new BadInputError(error.json()));
-    }
-    return Observable.throw(new AppError(error));
-  }
-
 }
