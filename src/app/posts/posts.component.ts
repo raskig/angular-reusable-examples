@@ -38,12 +38,14 @@ export class PostsComponent implements OnInit {
   }
 
   deletePost(post) {
+    const index = this.posts.indexOf(post); // Optimistic delete.
+    this.posts.splice(index, 1);
     this.service.delete(post.id)
-      .subscribe(() => {
-        const index = this.posts.indexOf(post);
-        this.posts.splice(index, 1);
-      },
+      .subscribe(
+        null, // We don't care about positive response
         (error: AppError) => {
+          this.posts.splice(0, 0, post); // Rollback Optimistic delete
+
           if (error instanceof NotFoundError) {
             alert('This post has already been deleted.');
           } else {
@@ -55,7 +57,7 @@ export class PostsComponent implements OnInit {
   createPost(input: HTMLInputElement) {
     const post = {title: input.value};
     this.posts.splice(0, 0, post); // For optimistic update.
-    
+
     input.value = '';
     this.service.create(post)
       .subscribe(newPost => {
