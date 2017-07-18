@@ -54,14 +54,20 @@ export class PostsComponent implements OnInit {
 
   createPost(input: HTMLInputElement) {
     const post = {title: input.value};
+    this.posts.splice(0, 0, post); // For optimistic update.
+    
     input.value = '';
     this.service.create(post)
       .subscribe(newPost => {
         post['id'] = newPost.id;
-        this.posts.splice(0, 0, post);
+        // Pessimistic:  this.posts.splice(0, 0, post);
         console.log(newPost);
       },
         (error: AppError) => {
+
+        // Rollback Optimistic update:
+          this.posts.splice(0, 1);
+
         if (error instanceof BadInputError) {
             // Do something with the error
            // this.form.setErrors(error.orignalError());
