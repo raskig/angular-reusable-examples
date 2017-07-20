@@ -66,7 +66,7 @@ import { ExamplesComponent } from './examples/examples.component';
         component: HomeComponent
       },
       {
-        path: 'followers/:id',
+        path: 'followers/:id/:username',
         component: GithubProfileComponent
       },
       {
